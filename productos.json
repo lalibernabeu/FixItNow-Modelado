@@ -1,0 +1,30 @@
+[
+  {
+    "id": "plomeria",
+    "nombre": "Plomería general",
+    "descripcion": "Reparaciones, cambio de grifería, detección de fugas y mantenimiento de cañerías.",
+    "precioBase": 1200,
+    "imagen": "assets/plomeria.jpg"
+  },
+  {
+    "id": "electricista",
+    "nombre": "Electricidad",
+    "descripcion": "Instalación y reparación eléctrica, enchufes, luminarias y tableros.",
+    "precioBase": 1500,
+    "imagen": "assets/electricista.jpg"
+  },
+  {
+    "id": "construccion",
+    "nombre": "Pequeñas reformas",
+    "descripcion": "Reparaciones en mampostería, albañilería ligera y remodelaciones pequeñas.",
+    "precioBase": 1800,
+    "imagen": "assets/construccion.jpg"
+  },
+  {
+    "id": "pintura",
+    "nombre": "Pintura",
+    "descripcion": "Pintura interior y exterior, reparaciones de superficies y preparado.",
+    "precioBase": 1000,
+    "imagen": "assets/pintura.jpg"
+  }
+]

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fix it Now - Calculadora</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Fix it Now</h1>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="oficios.html">Oficios</a>
+        <a href="calculadora.html" class="active">Calculadora</a>
+        <a href="formulario.html">Contacto</a>
+        <a href="perfil.html">Perfil</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Calculadora de presupuesto</h2>
+
+    <form id="calc-form" class="card">
+      <label for="servicio">Tipo de servicio</label>
+      <select id="servicio" required></select>
+
+      <label for="horas">Horas estimadas</label>
+      <input id="horas" type="number" min="0" step="0.5" value="1" required />
+
+      <label for="materiales">Costo estimado de materiales (ARS)</label>
+      <input id="materiales" type="number" min="0" step="0.01" value="0" required />
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Calcular</button>
+        <button id="limpiar" type="button" class="btn outline">Limpiar</button>
+      </div>
+
+      <div id="resultado" class="result hidden"></div>
+      <div id="mensaje" class="muted"></div>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><small>Fix it Now — v1.0.0</small></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/calculadora.js"></script>
+</body>
+</html>

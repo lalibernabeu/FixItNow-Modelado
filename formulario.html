@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fix it Now - Contacto</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Fix it Now</h1>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="oficios.html">Oficios</a>
+        <a href="calculadora.html">Calculadora</a>
+        <a href="formulario.html" class="active">Contacto</a>
+        <a href="perfil.html">Perfil</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Formulario de contacto</h2>
+    <form id="contacto-form" class="card">
+      <label for="nombre">Nombre completo</label>
+      <input id="nombre" type="text" required />
+
+      <label for="email">Correo electrónico</label>
+      <input id="email" type="email" required />
+
+      <label for="servicio-interes">Servicio de interés</label>
+      <select id="servicio-interes">
+        <option value="">-- seleccioná --</option>
+      </select>
+
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje-text" rows="5" required></textarea>
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Enviar</button>
+        <button id="reset-form" type="button" class="btn outline">Limpiar</button>
+      </div>
+
+      <div id="contact-feedback" class="muted"></div>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><small>Fix it Now — v1.0.0</small></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contacto-form');
+      const feedback = document.getElementById('contact-feedback');
+      // Poblar select de servicios
+      window.populateServicioSelect && window.populateServicioSelect('servicio-interes');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const servicio = document.getElementById('servicio-interes').value;
+        const mensaje = document.getElementById('mensaje-text').value.trim();
+
+        if (!nombre || !email || !mensaje) {
+          feedback.textContent = 'Complete todos los campos obligatorios.';
+          feedback.classList.add('error');
+          return;
+        }
+
+        // Simulación de envío: guardamos en localStorage (futuro: envío al backend)
+        const inbox = JSON.parse(localStorage.getItem('fixitnow_inbox') || '[]');
+        inbox.push({
+          nombre, email, servicio, mensaje, fecha: new Date().toISOString()
+        });
+        localStorage.setItem('fixitnow_inbox', JSON.stringify(inbox));
+
+        feedback.textContent = 'Formulario enviado correctamente. (Simulado)';
+        feedback.className = 'success';
+        form.reset();
+      });
+
+      document.getElementById('reset-form').addEventListener('click', () => {
+        form.reset();
+        feedback.textContent = '';
+        feedback.className = 'muted';
+      });
+    });
+  </script>
+</body>
+</html>
