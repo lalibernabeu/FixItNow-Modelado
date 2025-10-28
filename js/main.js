@@ -72,3 +72,17 @@
     }
   });
 })();
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const headerContainer = document.getElementById('header');
+  const footerContainer = document.getElementById('footer');
+
+  fetch('templates/header.html')
+    .then(res => res.text())
+    .then(html => headerContainer.innerHTML = html);
+
+  fetch('templates/footer.html')
+    .then(res => res.text())
+    .then(html => footerContainer.innerHTML = html);
+});
